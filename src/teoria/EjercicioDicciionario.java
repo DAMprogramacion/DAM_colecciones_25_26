@@ -2,10 +2,60 @@ package teoria;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class EjercicioDicciionario {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Map<Integer, Double[]> data = new HashMap<>();
+        Double[] mark1 = {2.2, 3.3, 4.4};
+        Double[] mark2 = {6.2, 7.3, 4.4};
+        Double[] mark3 = {2.2, 8.3, 9.4};
+        Double[] mark4 = {5.0, 5.0, 5.0};
+        data.put(1, mark1);
+        data.put(2, mark2);
+        data.put(3, mark3);
+        data.put(4, mark4);
+        //System.out.println(data);
+        String menu = """
+                    1.- Mostrar datos.
+                    2.- Añadir datos.
+                    3.- Media califiaciones por alumno.
+                    4.- Variar porcentaje de califación por módulo.
+                    5.- Salir.
+                    Elige opción:
+                    
+                    """;
+
+
+        int option = -1;
+        do {
+            System.out.print(menu);
+            option = scanner.nextInt();
+            switch (option) {
+                case 1 -> showData(data);
+                case 2 -> addData(data);
+                case 3 -> showAverageData(data);
+                case 4 -> changeData(data);
+                case 5 -> System.out.println("Fin de programa");
+                default -> System.out.println("Opción no válida");
+            }
+        } while (option != 5);
+    }
+
+    private static void changeData(Map<Integer, Double[]> data) {
+    }
+
+    private static void showAverageData(Map<Integer, Double[]> data) {
+    }
+
+    private static void addData(Map<Integer, Double[]> data) {
+    }
+
+    private static void showData(Map<Integer, Double[]> data) {
+        /*Mostrar todos los alumnos y calificaciones:
+        1 -> 1, 2, 5
+        2 -> 2, 7, 7*/
     }
 }
 /* Primero creais un diccionario mutable, con cuatro datos
