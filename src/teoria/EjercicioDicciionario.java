@@ -36,7 +36,10 @@ public class EjercicioDicciionario {
                 case 2 -> addData(data);
                 case 3 -> showAverageDataByModule(data);
                 case 4 -> changeData(data);
-                case 5 -> System.out.println("Fin de programa");
+                case 5 -> {
+                    System.out.println("Fin de programa");
+                    scanner.close();
+                }
                 default -> System.out.println("Opción no válida");
             }
         } while (option != 5);
@@ -47,6 +50,17 @@ public class EjercicioDicciionario {
 
     private static void showAverageDataByModule(Map<Integer, Double[]> data) {
         //solicitamos al usuario el valor del módulo para obtener la media
+        System.out.println("Dame uno de los módulos [0 - 2]");
+        int module = scanner.nextInt();
+        double sum = 0;
+        Set<Integer> keys = data.keySet();
+        for (int key : keys) {
+            Double[] marks = data.get(key);
+            double mark = marks[module];
+            sum += mark;
+        }
+        double average = sum / data.size();
+        System.out.printf("El valor medio del módulo %d es: %.2f%n", module, average);
         //definir una variable sum = 0
         //recorrer el map y para cada alumno, sacar la nota del módulo correspondiente (0, 1, 2)
     }
