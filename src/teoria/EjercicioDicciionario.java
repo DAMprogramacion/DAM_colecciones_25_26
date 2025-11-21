@@ -1,12 +1,11 @@
 package teoria;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class EjercicioDicciionario {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         Map<Integer, Double[]> data = new HashMap<>();
         Double[] mark1 = {2.2, 3.3, 4.4};
         Double[] mark2 = {6.2, 7.3, 4.4};
@@ -35,7 +34,7 @@ public class EjercicioDicciionario {
             switch (option) {
                 case 1 -> showData(data);
                 case 2 -> addData(data);
-                case 3 -> showAverageData(data);
+                case 3 -> showAverageDataByModule(data);
                 case 4 -> changeData(data);
                 case 5 -> System.out.println("Fin de programa");
                 default -> System.out.println("Opción no válida");
@@ -46,16 +45,41 @@ public class EjercicioDicciionario {
     private static void changeData(Map<Integer, Double[]> data) {
     }
 
-    private static void showAverageData(Map<Integer, Double[]> data) {
+    private static void showAverageDataByModule(Map<Integer, Double[]> data) {
+        //solicitamos al usuario el valor del módulo para obtener la media
+        //definir una variable sum = 0
+        //recorrer el map y para cada alumno, sacar la nota del módulo correspondiente (0, 1, 2)
     }
 
     private static void addData(Map<Integer, Double[]> data) {
+        //traeros todos los keys, sacar el último valor y sumamos + 1
+        Set<Integer> keys = data.keySet();
+        int newKey = 0;
+        for (int key : keys) {
+            newKey = key;
+        }
+        newKey++; //icrementamos una unidad, para el nuevo alumno
+        //solicitamos tres notas
+        //con esos valores creamos un array de tres doubles
+        Double[] marks = new Double[3];
+        for (int i = 0; i < marks.length; i++) {
+            System.out.println("Introduce la nota del módulo: " + i);
+            marks[i] = scanner.nextDouble();
+        }
+        //añadimos al map, con el metodo put(key, value)
+        data.put(newKey, marks);
     }
 
     private static void showData(Map<Integer, Double[]> data) {
         /*Mostrar todos los alumnos y calificaciones:
         1 -> 1, 2, 5
         2 -> 2, 7, 7*/
+        Set<Integer> keys = data.keySet();
+        for (int key  : keys) {
+           // System.out.println(key + " -> " + Arrays.toString(data.get(key)));
+            System.out.printf("%d -> %s%n", key, Arrays.toString(data.get(key)));
+        }
+        System.out.println();
     }
 }
 /* Primero creais un diccionario mutable, con cuatro datos
