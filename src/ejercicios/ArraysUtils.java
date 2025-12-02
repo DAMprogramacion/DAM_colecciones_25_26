@@ -1,0 +1,64 @@
+package ejercicios;
+
+import java.util.Arrays;
+
+public class ArraysUtils {
+    public static int sumItemsOfArray (int[] array) {
+        int sum = 0;
+        for (int item : array) {
+            sum += item;
+        }
+        return sum;
+    }
+    public static int[] getMinimumMaximumOfArray (int[] array) {
+        int[] values = new int[2];
+        int min = array[0];
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min)
+                min = array[i];
+            else if (array[i] > max)
+                max = array[i];
+        }
+        values[0] = min;
+        values[1] = max;
+        return values;
+    }
+    public static int[] getArrayWithoutDuplicates(int[] array) {
+        Arrays.sort(array); //arrayordenado
+        int sizeArrayWD = array.length;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] == array[i - 1])
+                sizeArrayWD--;
+        }
+        int[] arrayWD = new int[sizeArrayWD];
+        arrayWD[0] = array[0];
+        int duplicates = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] == array[i - 1])
+                duplicates++;
+            else{
+                System.out.println(array[i]);
+                arrayWD[i - duplicates] = array[i];
+            }
+        }
+        return arrayWD;
+    }
+    public static int[] rotatePositionsInArrays (int[] array, int position){
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length ; i++) {
+            newArray[(i + position) % array.length] = array[i];
+        }
+        return new int[]{};
+    }
+    public static void main(String[] args) {
+        int[] array = {9,9,9,9,9,-9,10, 1, 2, 3, 4, 5, 6, -1, 1, -1};
+        int sum = sumItemsOfArray(array);
+        System.out.printf("La suma de los valores del array vale %d%n", sum);
+        int[] values = getMinimumMaximumOfArray(array);
+        System.out.printf("Valor mas chico es %d y el más grande %d%n", values[0], values[1]);
+        int[] arrayWD = getArrayWithoutDuplicates(array);
+        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(arrayWD));
+    }
+}
