@@ -38,7 +38,7 @@ public class ArraysUtils {
             if (array[i] == array[i - 1])
                 duplicates++;
             else{
-                System.out.println(array[i]);
+               // System.out.println(array[i]);
                 arrayWD[i - duplicates] = array[i];
             }
         }
@@ -49,10 +49,13 @@ public class ArraysUtils {
         for (int i = 0; i < array.length ; i++) {
             newArray[(i + position) % array.length] = array[i];
         }
-        return new int[]{};
+        return newArray;
     }
     public static void main(String[] args) {
         int[] array = {9,9,9,9,9,-9,10, 1, 2, 3, 4, 5, 6, -1, 1, -1};
+        System.out.println(Arrays.toString(array));
+        int[] newArray = rotatePositionsInArrays(array, 2);
+        System.out.println(Arrays.toString(newArray));
         int sum = sumItemsOfArray(array);
         System.out.printf("La suma de los valores del array vale %d%n", sum);
         int[] values = getMinimumMaximumOfArray(array);
