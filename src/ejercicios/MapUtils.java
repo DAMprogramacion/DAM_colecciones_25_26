@@ -40,20 +40,50 @@ public class MapUtils {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce el número de contactos");
         int numberOfContacts = scanner.nextInt();
+        scanner.nextLine(); //limpiamos el scanner
         for (int i = 0; i < numberOfContacts; i++) {
             System.out.println("Introduce teléfono:");
             String phoneNumber = scanner.next();
+            scanner.nextLine();//limpiamos el sacanner
             System.out.println("Introduce nombre completo");
             String name =  scanner.nextLine();
             mapPhoneList.put(phoneNumber, name);
         }
         return mapPhoneList;
     }
+    //métodos CRUD C: CREATE, R: BUSCAR, U:MODIFICAT, D: ELIMINAR
+    public static String removeContactByNumberPhone(String numberPhone, Map<String, String> phoneList) {
+        return phoneList.remove(numberPhone);
+    }
+    public static boolean findContactByNumberPhone (String numberPhone, Map<String, String> phoneList) {
+        return phoneList.containsKey(numberPhone);
+    }
+    public static String updateContact( String numberPhone, String newName, Map<String, String> phoneList) {
+        return phoneList.replace(numberPhone, newName);
+    }
+    public static String addNewContact (String numberPhone, String name, Map<String, String> phoneList) {
+        return phoneList.put(numberPhone, name);
+
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         /*Map<String, Integer> mapWords = createMaps("ficheros/texto.txt");
         System.out.println(mapWords);*/
         Map<String, String> mapPhoneList = createPhoneList();
         System.out.println(mapPhoneList);
+        boolean existContact = findContactByNumberPhone("12345678", mapPhoneList);
+        System.out.printf("¿Existe el nº 12345678, %B%n", existContact);
+        existContact = findContactByNumberPhone("1", mapPhoneList);
+        System.out.printf("¿Existe el nº 1, %B%n", existContact);
+        String oldName = updateContact("12345678", "isabel gonzález", mapPhoneList);
+        System.out.println(mapPhoneList);
+        String newContact = addNewContact("000000", "emergencias", mapPhoneList);
+        System.out.printf("Añadido el contacto de %S%n", newContact);
+        System.out.println(mapPhoneList);
+        String oldContact = removeContactByNumberPhone("000000", mapPhoneList);
+        System.out.printf("Elimiando el contacto de %S%n", oldContact);
+        System.out.println(mapPhoneList);
+
 
     }
 

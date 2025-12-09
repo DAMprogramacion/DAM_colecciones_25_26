@@ -2,7 +2,20 @@ package ejercicios;
 
 import java.util.Arrays;
 
+/**
+ * <p>Es una clase que contiene métodos para tratar arrays de números enteros</p>
+ * @author manuel
+ * @version 1.0
+ */
 public class ArraysUtils {
+    private ArraysUtils() {}
+    /**
+     * <p>Método que nos devuelve la suma de los elementos</p>
+     * <p>de un array de números enteros</p>
+     * @param array es la colección de tipo array sobre la que va a actuar el método
+     * @return un número entero con la suma de los números que contiene el array
+     */
+
     public static int sumItemsOfArray (int[] array) {
         int sum = 0;
         for (int item : array) {
@@ -10,6 +23,12 @@ public class ArraysUtils {
         }
         return sum;
     }
+
+    /**
+     *
+     * @param array
+     * @return
+     */
     public static int[] getMinimumMaximumOfArray (int[] array) {
         int[] values = new int[2];
         int min = array[0];
@@ -24,6 +43,12 @@ public class ArraysUtils {
         values[1] = max;
         return values;
     }
+
+    /**
+     *
+     * @param array
+     * @return
+     */
     public static int[] getArrayWithoutDuplicates(int[] array) {
         Arrays.sort(array); //arrayordenado
         int sizeArrayWD = array.length;
@@ -44,6 +69,13 @@ public class ArraysUtils {
         }
         return arrayWD;
     }
+
+    /**
+     *
+      * @param array
+     * @param position
+     * @return
+     */
     public static int[] rotatePositionsInArrays (int[] array, int position){
         int[] newArray = new int[array.length];
         for (int i = 0; i < array.length ; i++) {
@@ -51,7 +83,7 @@ public class ArraysUtils {
         }
         return newArray;
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         int[] array = {9,9,9,9,9,-9,10, 1, 2, 3, 4, 5, 6, -1, 1, -1};
         System.out.println(Arrays.toString(array));
         int[] newArray = rotatePositionsInArrays(array, 2);
@@ -63,5 +95,5 @@ public class ArraysUtils {
         int[] arrayWD = getArrayWithoutDuplicates(array);
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(arrayWD));
-    }
+    }*/
 }

@@ -2,7 +2,19 @@ package ejercicios;
 
 import java.util.*;
 
+/**
+ * Clase de utilidades para listas dinámicas
+ * @author manuel
+ * @version 1.0
+ */
 public class ListUtils {
+    private ListUtils() {
+    }
+
+    /**
+     * Método que ordena una lista
+     * @return lista ordena
+     */
     public static List<String> getSortListOfName() {
         Scanner scanner = new Scanner(System.in);
         List<String> names = new ArrayList<>();
@@ -40,7 +52,7 @@ public class ListUtils {
         }
         return new ArrayList<>(commonList);
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
        // List<String> names = getSortListOfName();
        // System.out.println(names);
         List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 4, 5, 6));
@@ -51,5 +63,5 @@ public class ListUtils {
         List<Integer> numbers1 = new ArrayList<>(List.of(1, 2, 3, 4, 9, 8, 80));
         System.out.println(getCommonsItems(numbers, numbers1));
 
-    }
+    }*/
 }
