@@ -13,10 +13,14 @@ public class ArraysUtils {
      * <p>Método que nos devuelve la suma de los elementos</p>
      * <p>de un array de números enteros</p>
      * @param array es la colección de tipo array sobre la que va a actuar el método
-     * @return un número entero con la suma de los números que contiene el array
+     * @return <p>un número entero con la suma de los números que contiene el array</p>
+     *          <p>en el caso de un array vacío devuelve 0</p>
+     *          <p>en el caso de que la referencia del array sea null devuelve null</p>
      */
 
-    public static int sumItemsOfArray (int[] array) {
+    public static Integer sumItemsOfArray (int[] array) {
+        if (array == null)
+            return  null;
         int sum = 0;
         for (int item : array) {
             sum += item;
@@ -30,6 +34,10 @@ public class ArraysUtils {
      * @return
      */
     public static int[] getMinimumMaximumOfArray (int[] array) {
+        if (array == null)
+            return null;
+        if (array.length == 0)
+            return new int[]{};
         int[] values = new int[2];
         int min = array[0];
         int max = array[0];

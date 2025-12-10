@@ -4,7 +4,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * <p>Clase con distintos métodos estáticos para trabajar con Maps</p>
+ * @author manuel
+ * @version 1.0.0
+ */
 public class MapUtils {
+    private MapUtils() {
+    }
+
+    /**
+     * Método que dado una ruta de un fichero, guarda cada palabra en una lista
+     * @param path ruta del fichero a analizar
+     * @return una lista de tipo String, que contiene cada una de las palabras del fichero.
+     * @throws FileNotFoundException excepeción que se lanza si la ruta no contiene un fichero válido
+     */
     public static List<String> listWords (String path) throws FileNotFoundException {
         List<String> setWords = new ArrayList<>();
         Scanner scanner = new Scanner(new File(path));
@@ -66,9 +80,9 @@ public class MapUtils {
 
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        /*Map<String, Integer> mapWords = createMaps("ficheros/texto.txt");
-        System.out.println(mapWords);*/
+    /*public static void main(String[] args) throws FileNotFoundException {
+        *//*Map<String, Integer> mapWords = createMaps("ficheros/texto.txt");
+        System.out.println(mapWords);*//*
         Map<String, String> mapPhoneList = createPhoneList();
         System.out.println(mapPhoneList);
         boolean existContact = findContactByNumberPhone("12345678", mapPhoneList);
@@ -85,7 +99,7 @@ public class MapUtils {
         System.out.println(mapPhoneList);
 
 
-    }
+    }*/
 
 
 
