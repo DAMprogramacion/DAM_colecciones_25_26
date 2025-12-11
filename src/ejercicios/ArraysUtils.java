@@ -53,11 +53,19 @@ public class ArraysUtils {
     }
 
     /**
-     *
-     * @param array
-     * @return
+     * <p>Método que devuelve un array de números enteros sin duplicados y ordenado</p>
+     * <p>Ejemplo [1,2,5,5,4] devuelve el array [1,2,4,5]</p>
+     * <p>En el caso que el array tenga un solo elemento, devuelve el mismo array</p>
+     * <p>En el caso que el array está vacio, devuelve un array vacío</p>
+     * <p>En el caso que reciba un null, devuelve un null</p>
+     * @param array, es un array de números enteros
+     * @return el array ordenado sin duplicados ó array vacío ó null
      */
     public static int[] getArrayWithoutDuplicates(int[] array) {
+        if (array == null)
+            return null;
+        if (array.length == 0)
+            return array;  //está vacío
         Arrays.sort(array); //arrayordenado
         int sizeArrayWD = array.length;
         for (int i = 1; i < array.length; i++) {
@@ -85,9 +93,20 @@ public class ArraysUtils {
      * @return
      */
     public static int[] rotatePositionsInArrays (int[] array, int position){
+       if (array == null)
+           return null;
+        if (position < 0)
+            return array;
         int[] newArray = new int[array.length];
-        for (int i = 0; i < array.length ; i++) {
-            newArray[(i + position) % array.length] = array[i];
+        if (position >= 0) {
+            for (int i = 0; i < array.length; i++) {
+                newArray[(i + position) % array.length] = array[i];
+            }
+        } else {
+            /*for (int i = array.length - 1; i <= 0; i++) {
+                newArray[(i + position) % array.length] = array[i];
+            } */
+            return array;
         }
         return newArray;
     }
