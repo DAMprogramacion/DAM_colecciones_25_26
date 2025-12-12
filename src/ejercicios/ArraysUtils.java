@@ -93,21 +93,38 @@ public class ArraysUtils {
      * @return
      */
     public static int[] rotatePositionsInArrays (int[] array, int position){
-       if (array == null)
+       /*if (array == null)
            return null;
         if (position < 0)
             return array;
         int[] newArray = new int[array.length];
-        if (position >= 0) {
-            for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
                 newArray[(i + position) % array.length] = array[i];
-            }
-        } else {
-            /*for (int i = array.length - 1; i <= 0; i++) {
-                newArray[(i + position) % array.length] = array[i];
-            } */
-            return array;
         }
+        return newArray;*/
+
+        if (array == null || array.length == 0) return array;
+
+        int sizeOfArray = array.length;
+
+        // Normalizar posiciones
+        position = position % sizeOfArray;
+        if (position < 0) {
+            position = sizeOfArray + position; // convertir rotación negativa en equivalente positiva
+        }
+
+        // Si no hay rotación, devolver el mismo array
+        if (position == 0) return array;
+
+        // Crear array resultado
+        int[] newArray = new int[sizeOfArray];
+
+        // Copiar la parte final al inicio
+        System.arraycopy(array, sizeOfArray - position, newArray, 0, position);
+
+        // Copiar la parte inicial al final
+        System.arraycopy(array, 0, newArray, position, sizeOfArray - position);
+
         return newArray;
     }
     /*public static void main(String[] args) {

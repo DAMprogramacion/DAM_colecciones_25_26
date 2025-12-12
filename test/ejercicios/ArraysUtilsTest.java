@@ -48,7 +48,10 @@ class ArraysUtilsTest {
         assertArrayEquals(new int[]{0,1,2,3}, ArraysUtils.rotatePositionsInArrays(array, 4));
         assertArrayEquals(new int[]{1,2,3,0}, ArraysUtils.rotatePositionsInArrays(array, 3));
         assertArrayEquals(new int[]{0,1,2,3}, ArraysUtils.rotatePositionsInArrays(array, 0));
-        assertArrayEquals(new int[]{0,1,2,3}, ArraysUtils.rotatePositionsInArrays(array, -1));
+        assertArrayEquals(new int[]{1,2,3,0}, ArraysUtils.rotatePositionsInArrays(array, -1));
+        assertArrayEquals(new int[]{3,0,1,2}, ArraysUtils.rotatePositionsInArrays(array, -3));
+        assertArrayEquals(new int[]{0,1,2,3}, ArraysUtils.rotatePositionsInArrays(array, -4));
+        assertArrayEquals(new int[]{1,2,3,0}, ArraysUtils.rotatePositionsInArrays(array, -5));
         assertArrayEquals(new int[]{1}, ArraysUtils.rotatePositionsInArrays(new int[]{1}, 15));
         assertArrayEquals(new int[]{}, ArraysUtils.rotatePositionsInArrays(new int[]{}, 15));
         assertArrayEquals(new int[]{}, ArraysUtils.rotatePositionsInArrays(new int[]{}, -15));
